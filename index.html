@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title></title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Artem Zakharchenko">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>JS Scalable application.</h1>
+					<h5>Widget based development.</h5>
+					<p>
+						Common tools
+					</p>
+				</section>
+
+				<section>
+					<h2>Typical js</h2>
+					<pre>
+						<code contenteditable style="font-size: 16px; margin-top: 20px;">
+							 $(function(){
+						 	  //Типичный код для сайта
+						 	  $('#button').click(function(event){
+						 	   alert(this.innerHTML);
+						 	  });
+						 	
+						 	  $('#list').uberScrollerPluginStart({"theme":"red"});
+						 	
+						 	  $('#lazy_thing').click(function(){
+						 	   $.get('/lazy/thing/body.html',doLazyLoad.bind(this));
+						 	  });
+
+						 	  /* Ещё десяток разных стилей и плагинов */
+							}); 	
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h1>Results</h1>
+					<p>
+						<img src = "assets/img/klubok.jpg">
+					</p>
+				</section>
+
+				<section>
+					<h1>Small history</h1>
+					<p>
+						<img src = "assets/img/game.png">
+					</p>
+				</section>
+
+				<section>
+					<h1>Goal</h1>
+					<h3>
+						1.000.000$
+					</h3>
+				</section>
+				
+				<section data-state="alert">
+					<h1>Results</h1>
+					<p>
+						<img src = "assets/img/klubok.jpg">
+					</p>
+				</section>
+
+				<section>
+					<h2>...and</h2> 
+					<p>
+						25000 users
+					</p>
+				</section>
+
+				<section>
+					<h2>What is popular now?</h2>
+ 						<li>jQuery</li>
+ 						<li>Backbone</li>
+ 						<li>YUI</li>
+				</section>
+
+				 
+
+				<section>
+					<h2>Module</h2>
+					<p><strong>web application module (n)</strong>
+						an independent unit of functionality that is part of the total structure of a web application
+					</p>
+				</section>
+
+				<section>
+					<h2>Principal structure</h2>
+					<p>
+						<img src = "assets/img/scalable.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>Module</h2>
+					<pre>
+						<code contenteditable style="font-size: 16px; margin-top: 20px;">
+							  Core.register("module-name", function(sandbox){
+									return {
+										init: function(){
+										//constructor
+										},
+										destroy: function(){
+										//destructor
+										}
+									};
+								});
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Module</h2>
+					<ul>
+						<li>Hands to yourself
+							<ul>
+								<li>Only call your own methods or those on the sandbox
+								</li>
+								<li>Don’t access DOM elements outside of your box
+								</li>
+								<li>Don’t access non-native global objects </li>
+							</ul>
+						</li>
+						<li>Ask, don’t take
+						<ul>
+							<li>Anything else you need, ask the sandbox </li>
+						</ul>
+						</li>
+						<li>Don’t leave your toys around
+							<ul>
+								<li>Don’t create global objects </li>
+							</ul>
+						</li>
+						<li>Don’t talk to strangers
+							<ul>
+								<li>Don’t directly reference other modules </li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sandbox</h2>
+					<ul>
+						<li>It provides consistency</li>
+						<li>It provides security – Determine which parts of the framework a module can access</li>
+						<li>It provides communication – Translate module requests into core actions</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Aplication core Jobs</h2>
+					<ul>
+					<li>Manage module lifecycle
+					<ul>
+					<li>Tell modules when to start and stop doing their job </li>
+					</ul>
+					</li><li>Enable inter-module communication
+					<ul>
+					<li>Allow loose coupling between modules that are related to one another </li>
+					</ul>
+					</li><li>General error handling
+					<ul>
+					<li>Detect, trap, and report errors in the system </li>
+					</ul>
+					</li><li>Be extensible
+					<ul>
+					<li>The first three jobs are not enough </li>
+					</ul>
+					</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Base libraries</h2>
+					 <ul>
+						<li>Browser normalization
+						<ul>
+						<li>Abstract away differences in browsers with common interface </li>
+						</ul>
+						</li><li>General-purpose utilities
+						<ul>
+						<li>Parsers/serialises for XML, JSON, etc.
+						</li><li>Object manipulation
+						</li><li>DOM manipulation
+						</li><li>Ajax communication </li>
+						</ul>
+						</li><li>Provide low-level extensibility </li>
+					</ul>
+				</section>
+				<section>
+					<h2>Finally</h2>
+					 <ul>
+						<li>Only the base library knows which browser is being used</li>
+					    <li>Only the application core knows which base library is being used</li>
+					    <li>Only the sandbox knows which application core is being used.</li>
+					    <li>Each module knows nothing except that the sandbox exists.</li>
+					    <li>And finally no single part of the web application knows about the web application.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Simple realization</h2>
+					<p>
+						<img src = "assets/img/CoreSample.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>Simple realization sandbox</h2>
+					<p>
+						<img src = "assets/img/sandboxSample.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>Simple realization module</h2>
+					<p>
+						<img src = "assets/img/moduleSample.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>Replacing base library jQuery</h2>
+					<p>
+						<img src = "assets/img/jquery.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>Replacing base library Dojo</h2>
+					<p>
+						<img src = "assets/img/dojo.png">
+					</p>
+				</section>
+
+				<section>
+					<h1>Aura js</h1>
+					 <p>Aura gives you complete control of a widget's lifecycle, allowing developers to dynamically start, stop, reload and clean-up parts of their application as needed.</p>
+				</section>
+
+				<section>
+					<h1>Aura js structure</h1>
+					 <p>Application Core</p>
+					 <p>The Sandbox</p>
+					 <p>Widgets</p>
+					 <p>Modules</p>
+				</section>
+
+				<section>
+					<h1>Principal  structure</h1>
+					<p>-- js/aura</p>
+					<p>-- js/ext</p>
+					<p>-- js/widgets</p>
+					<p>app.js</p>
+				</section>
+
+				<section>
+					<h1>Aura mediator</h1>
+					<li>mediator.start(channel, el) e.g mediator.start('calendar', '#calendarapp')</li>
+					<li>mediator.stop(channel, el) e.g mediator.stop('calendar', #calendarapp')</li>
+					<li>mediator.unload(channel) e.g mediator.unload('calendar')</li>
+					<li>mediator.publish(channel)</li>
+					<li>mediator.subscribe(channel, callback, context)</li>
+				</section>
+
+				<section>
+					<h1>Aura mediator</h1>
+					<li>mediator.dom.find(selector, context) => $(..)</li>
+					<li>mediator.dom.data(selector, attribute) => $(..).data()</li>
+					<li>mediator.events.listen(context, events, selector, callback)</li>
+					<li>mediator.events.bindAll()</li>
+					<li>mediator.data.deferred() => $.Deferred</li>
+					<li>mediator.template.parse() => _.template() (can be switched out)</li>
+				</section>
+
+				<section>
+					<h1>Aura sandbox</h1>
+					<ul>
+						<li><code>facade.start(channel, el)</code></li>
+						<li><code>facade.stop(channel, el)</code></li>
+						<li><code>facade.publish(channel)</code></li>
+						<li><code>facade.subscribe(subscriber, channel, callback)</code></li>
+						<li><code>facade.dom.find(selector, context)</code></li>
+						<li><code>facade.events.listen(context,events,selector,callback)</code></li>
+						<li>facade.mvc.View</li>
+						<li>facade.mvc.Model</li>
+						<li>facade.mvc.Collection</li>
+						<li>facade.widgets.start(channel, el)</li>
+						<li>facade.widgets.stop(channel, el)</li>						
+					</ul>
+				</section>
+
+				<section data-state="alert">
+					<h1>Aura sandbox</h1>
+					<ul>
+						<li><code>Unit testing</code></li>
+						<li><code>Documentation</code></li>						
+					</ul>
+				</section>
+
+				<section>
+					<h1>Kernel JS</h1>
+					<ul>
+						<li>The modules are loosely coupled. They don't communicate with each other directly.</li>
+						<li>Your hub is the messaging bus. You can also give it an api.</li>
+						<li>Kernel provides lifecycle management. It can also abstract a base library.</li>		
+					</ul>
+				</section>
+				<section>
+					<h1>Kernel JS</h1>
+					<p>
+						<img src = "assets/img/kernel_architecture.png">
+					</p>
+				</section>
+
+				<section>
+					<h1>Kernel JS core</h1>
+					<p>
+						<li>Kernel.extend</li>
+						<li>Kernel.register</li>
+						<li>Kernel.start</li>
+						<li>Kernel.unregister</li>
+					</p>
+				</section>
+
+				<section>
+					<h1>Kernel JS hub</h1>
+					<p>
+						<li>Kernel.define</li>
+						<li>Kernel.register</li>
+						<li>Kernel.listen</li>
+						<li>Kernel.broadcast</li>
+					</p>
+				</section>
+
+				<section>
+					<h1>Kernel JS module</h1>
+					<p>
+						<li>Kernel.define</li>
+						<li>Kernel.isStarted</li>
+						<li>Kernel.get</li>
+					</p>
+				</section>
+
+				<section>
+					<h1>What we get know?<h1>
+						<a target = "_blank" href = "http://tradeonly.client-demo-site.net/editor/design.html">demo</a>
+				</section>	
+
+				<section>
+					<h1>Sample code<h1>
+						
+				</section>
+
+				<section>
+					<h1>ScaleApp<h1>
+					<p>
+						<img src = "assets/img/architecture.png">
+					</p>
+				</section>
+				<section>
+					<h2>ScaleApp start module</h2>
+					<pre>
+						<code contenteditable style="font-size: 16px; margin-top: 20px;">
+							scaleApp.register( "myModuleId", function( sb ){
+							  return {
+							    init:    function(){ /*...*/ },
+							    destroy: function(){ /*...*/ }
+							  };
+							});
+
+							scaleApp.start( "myModuleId", {instanceId: "myInstanceId" } );
+							scaleApp.start( "myModuleId", {instanceId: "anOtherInstanceId" });
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>ScaleApp start module</h2>
+					<pre>
+						<code contenteditable style="font-size: 16px; margin-top: 20px;">
+							sb.publish( "myEventTopic", myData, callback );
+							sub1 = sb.subscribe( "somthingHappend", messageHandler );
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>ScaleApp plugins</h2>
+					<li>i18n - Multi language UIs</li>
+					<li>mvc - very simple MVC</li>
+					<li>state - Finite State Machine</li>
+					<li>permission - controll all messages</li>
+					<li>util - some helper functions</li>
+				</section>
+				
+
+
+				<section>
+					<h1>THE END</h1>
+					<h3>Artem Z</h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.min.js"></script>
+		<script src="reveal/js/assets/highlight.js/highlight.pack.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
