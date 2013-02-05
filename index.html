@@ -34,7 +34,7 @@
 			<div class="slides">
 
 				<section>
-					<h1>JS Scalable application.</h1>
+					<h2>JS Scalable application.</h2>
 					<h5>Widget based development.</h5>
 					<p>
 						Common tools
@@ -43,24 +43,9 @@
 
 				<section>
 					<h2>Typical js</h2>
-					<pre>
-						<code contenteditable style="font-size: 16px; margin-top: 20px;">
-							 $(function(){
-						 	  //Типичный код для сайта
-						 	  $('#button').click(function(event){
-						 	   alert(this.innerHTML);
-						 	  });
-						 	
-						 	  $('#list').uberScrollerPluginStart({"theme":"red"});
-						 	
-						 	  $('#lazy_thing').click(function(){
-						 	   $.get('/lazy/thing/body.html',doLazyLoad.bind(this));
-						 	  });
-
-						 	  /* Ещё десяток разных стилей и плагинов */
-							}); 	
-						</code>
-					</pre>
+					<p>
+						<img src = "assets/img/typical.png">
+					</p>
 				</section>
 
 				<section>
@@ -123,24 +108,6 @@
 
 				<section>
 					<h2>Module</h2>
-					<pre>
-						<code contenteditable style="font-size: 16px; margin-top: 20px;">
-							  Core.register("module-name", function(sandbox){
-									return {
-										init: function(){
-										//constructor
-										},
-										destroy: function(){
-										//destructor
-										}
-									};
-								});
-						</code>
-					</pre>
-				</section>
-
-				<section>
-					<h2>Module</h2>
 					<ul>
 						<li>Hands to yourself
 							<ul>
@@ -169,6 +136,20 @@
 					</ul>
 				</section>
 
+				<section>
+					<h2>Module</h2>
+					 <p>
+						<img src = "assets/img/module.png">
+					</p>
+				</section>
+
+				<section>
+					<h2>Sandbox</h2>
+					<p>
+						<img src = "assets/img/sandbox1.gif">
+					</p>
+				</section>
+				
 				<section>
 					<h2>Sandbox</h2>
 					<ul>
@@ -269,6 +250,16 @@
 				</section>
 
 				<section>
+					<h1>Aura js</h1>
+					 <p><img src = "assets/img/omg.gif" width = 75%></p>
+				</section>
+
+				<section>
+					<h1>at first ...</h1>
+					 <p><img src = "assets/img/aura.png" width = 75%></p>
+				</section>
+
+				<section>
 					<h1>Aura js structure</h1>
 					 <p>Application Core</p>
 					 <p>The Sandbox</p>
@@ -285,6 +276,13 @@
 				</section>
 
 				<section>
+					<h1>Aura loader</h1>
+					<p>
+						<img src = "assets/img/auraStart.png" >
+					</p>
+				</section>
+
+				<section>
 					<h1>Aura mediator</h1>
 					<li>mediator.start(channel, el) e.g mediator.start('calendar', '#calendarapp')</li>
 					<li>mediator.stop(channel, el) e.g mediator.stop('calendar', #calendarapp')</li>
@@ -294,24 +292,14 @@
 				</section>
 
 				<section>
-					<h1>Aura mediator</h1>
-					<li>mediator.dom.find(selector, context) => $(..)</li>
-					<li>mediator.dom.data(selector, attribute) => $(..).data()</li>
-					<li>mediator.events.listen(context, events, selector, callback)</li>
-					<li>mediator.events.bindAll()</li>
-					<li>mediator.data.deferred() => $.Deferred</li>
-					<li>mediator.template.parse() => _.template() (can be switched out)</li>
-				</section>
-
-				<section>
 					<h1>Aura sandbox</h1>
 					<ul>
-						<li><code>facade.start(channel, el)</code></li>
-						<li><code>facade.stop(channel, el)</code></li>
-						<li><code>facade.publish(channel)</code></li>
-						<li><code>facade.subscribe(subscriber, channel, callback)</code></li>
-						<li><code>facade.dom.find(selector, context)</code></li>
-						<li><code>facade.events.listen(context,events,selector,callback)</code></li>
+						<li>facade.start(channel, el)</li>
+						<li>facade.stop(channel, el)</li>
+						<li>facade.publish(channel)</li>
+						<li>facade.subscribe(subscriber, channel, callback)</li>
+						<li>facade.dom.find(selector, context)</li>
+						<li>facade.events.listen(context,events,selector,callback)</li>
 						<li>facade.mvc.View</li>
 						<li>facade.mvc.Model</li>
 						<li>facade.mvc.Collection</li>
@@ -319,7 +307,12 @@
 						<li>facade.widgets.stop(channel, el)</li>						
 					</ul>
 				</section>
-
+				<section>
+					<h1>Aura module</h1>
+					<p>
+						<img src = "assets/img/auraModule.png">
+					</p>
+				</section>
 				<section data-state="alert">
 					<h1>Aura sandbox</h1>
 					<ul>
@@ -340,6 +333,13 @@
 					<h1>Kernel JS</h1>
 					<p>
 						<img src = "assets/img/kernel_architecture.png">
+					</p>
+				</section>
+
+				<section>
+					<h1>Kernel sample</h1>
+					<p>
+						<img src = "assets/img/kernelModule.png">
 					</p>
 				</section>
 
@@ -374,7 +374,7 @@
 
 				<section>
 					<h1>What we get know?<h1>
-						<a target = "_blank" href = "http://tradeonly.client-demo-site.net/editor/design.html">demo</a>
+						<a target = "_blank" href = "http://scap/samples">demo</a>
 				</section>	
 
 				<section>
@@ -390,38 +390,38 @@
 				</section>
 				<section>
 					<h2>ScaleApp start module</h2>
-					<pre>
-						<code contenteditable style="font-size: 16px; margin-top: 20px;">
-							scaleApp.register( "myModuleId", function( sb ){
-							  return {
-							    init:    function(){ /*...*/ },
-							    destroy: function(){ /*...*/ }
-							  };
-							});
-
-							scaleApp.start( "myModuleId", {instanceId: "myInstanceId" } );
-							scaleApp.start( "myModuleId", {instanceId: "anOtherInstanceId" });
-						</code>
-					</pre>
+					 <p>
+					 	<img src = "assets/img/scaleAppStart.png">
+					 </p>
 				</section>
 
 				<section>
 					<h2>ScaleApp start module</h2>
-					<pre>
-						<code contenteditable style="font-size: 16px; margin-top: 20px;">
-							sb.publish( "myEventTopic", myData, callback );
-							sub1 = sb.subscribe( "somthingHappend", messageHandler );
-						</code>
-					</pre>
+					<p>
+						sb.publish( "myEventTopic", myData, callback );
+						sub1 = sb.subscribe( "somthingHappend", messageHandler );
+					</p>
 				</section>
 
 				<section>
 					<h2>ScaleApp plugins</h2>
 					<li>i18n - Multi language UIs</li>
 					<li>mvc - very simple MVC</li>
-					<li>state - Finite State Machine</li>
 					<li>permission - controll all messages</li>
 					<li>util - some helper functions</li>
+				</section>
+
+				<section>
+					<p>
+						<img src = "assets/img/1.jpg">
+					</p>
+				</section>
+
+				<section>
+					<h2>Testing spec</h2>
+					<p>
+						<img src = "assets/img/specSample.png">
+					</p>
 				</section>
 				
 
